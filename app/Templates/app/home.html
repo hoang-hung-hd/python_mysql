@@ -51,44 +51,18 @@
 {% endblock banner-slider %}
 
 {% block main-content %}
-<div class="row">
+<div class="row" style="width:100%" >
+  {% for product in products %}
   <div class="col-lg-3">
     <div class="box-element product">
-      <img src="{%static 'app/images/cow-ghee.png' %}" class="thumbnail">
-      <h6><strong>Product</strong></h6>
+      <img src="{{ product.ImageURL }}" class="thumbnail">
+      <h6><strong>{{ product.productName }}</strong></h6>
       <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
       <a class="btn btn-outline-success" href="#">Product Detail</a>
-      <h4 style="display: inline-block; float: right"><strong>$19</strong></h4>
+      <h4 style="display: inline-block; float: right"><strong>$ {{ product.productPrice | floatformat:2 }}</strong></h4>
     </div>
   </div>
-
-  <div class="col-lg-3">
-    <div class="box-element product">
-      <img src="{%static 'app/images/cow-ghee.png' %}" class="thumbnail">
-      <h6><strong>Product</strong></h6>
-      <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-      <a class="btn btn-outline-success" href="#">Product Detail</a>
-      <h4 style="display: inline-block; float: right"><strong>$19</strong></h4>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="box-element product">
-      <img src="{%static 'app/images/cow-ghee.png' %}" class="thumbnail">
-      <h6><strong>Product</strong></h6>
-      <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-      <a class="btn btn-outline-success" href="#">Product Detail</a>
-      <h4 style="display: inline-block; float: right"><strong>$19</strong></h4>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="box-element product">
-      <img src="{%static 'app/images/cow-ghee.png' %}" class="thumbnail">
-      <h6><strong>Product</strong></h6>
-      <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-      <a class="btn btn-outline-success" href="#">Product Detail</a>
-      <h4 style="display: inline-block; float: right"><strong>$19</strong></h4>
-    </div>
-  </div>
+  {% endfor %}
 </div>
   
 {% endblock main-content %}
